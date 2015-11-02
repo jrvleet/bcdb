@@ -4,7 +4,7 @@ Do you love Bad-Ass chicks!? Of course you do!!! Now there's a centralized datab
 
 #ERD
 
-![BCDB ERD](app/assets/wireframes/badAssChickERD.png)
+![BCDB ERD](badass_chick_database/app/assets/wireframes/badAssChickERD.png)
 
 #App Wireframes
-![App Wireframes](app/assets/wireframes/newMockup_1.png)
+![App Wireframes](badass_chick_database/app/assets/wireframes/newMockup_1.png)
