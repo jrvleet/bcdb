@@ -1,0 +1,30 @@
+<%= form_for @chick do |f| %>
+  <% if @chick.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @chick.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="imageField" id="firstblock">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="textField">
+    <%= f.label :image_uri %>
+    <%= f.text_field :image_uri %>
+  </div>
+  <div class="textField">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+  <div class="textField">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="createChick"><%= f.submit %></div>
+<% end %>
