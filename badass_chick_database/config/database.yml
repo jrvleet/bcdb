@@ -22,4 +22,4 @@ test:
 
 production: badass_chick_database_production
  username: badass_chick_database
-  password: <%= ENV['badass_chick_database_PASSWORD']
+  password: <%= ENV['BADASS_CHICK_DATABASE_PASSWORD']
