@@ -18,46 +18,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+	padding-top: 70px;
+	/*background-image: url("images/swirl_pattern.png"); */
+	background-color: #ababab;
+	color: #4d505b;
+}
+
 .navbar-nav.navbar-right:last-child { margin: 0; }
-.navbar-default { background-color: white; }
+.navbar-default { background-color: #4d505b; }
 .navbar-toggle,
 .navbar-toggle:hover {
   border: none;
   background: none;
+  color: #ff6063;
 
   .icon-bar { height: 3px; }
 }
 
-.navbar-nav a {
-  text-transform: uppercase;
-  font-size: 14px;
-  color: #999;
-  padding: 15px 20px;
-  letter-spacing: .11em;
-  margin-bottom: -1px;
+a {
+	color: #ff6063;
 }
 
-h2.subheading {
-  font-weight: 300;
-  margin: 1em 0 0.5em;
-  font-size: 1.8em;
-}
-
-img.desaturate {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+a:hover {
+	color: #cf4858;
 }
 
 h1 {
 	font-family: Futura;
 	text-align: center;
 	margin: 70px;
-	color: dodgerblue;
+	color: #ff6063;
 }
 
 .navbar-header {
 	margin-left: 20px;
 	margin-top: 5px;
+	
 }
 
 
@@ -66,28 +63,32 @@ h1 {
 	margin: 5px;
 	font-size: 24px;
 	font-weight: bold;
+	color: #ff6063;
 }
 
 .navBar {
 	display: inline-block;
-	margin-left: 330px;
+	margin-left: 475px;
+
 }
 
 .navLinks {
 	margin: 20px;
 	margin-left: 55px;
+	/*color: #cf4858;*/
 }
 
 
 .logins {
-	margin-left: 300px;
+	color: #ff6063;
+	margin-left: 425px;
 	float: right;
 	margin-top: 5px;
 
 }
 
 .signUp {
-	
+	color: #ff6063;
 	float: right;
 	margin: 5px;
 }
@@ -107,5 +108,13 @@ h1 {
 }
 
 
+.chicks-container {
+	text-align: center;
+}
 
+.chicks-feed {
+	display: inline-block;
+	text-align: center;
+	border: 2px solid black;
+}
 

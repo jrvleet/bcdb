@@ -1,10 +1,17 @@
-<h1>Bad-Ass Chicks List</h1> 
-<% @chicks.each do |chick| %>
-	<h2><%= chick.name %></h2>
-	<%= image_tag((chick.image_uri), :class => "images") %>
-	<h3><%= chick.category %></h3>
-	<p><%= chick.text %></p>
-	<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
-	<button><%= link_to "comment", new_chick_comment_path(chick) %></button>
-
-	<% end %>
+<div class="chicks-container">
+	<div class="chicks-feed">
+		<h1>Bad-Ass Chicks List</h1> 
+		<% @chicks.each do |chick| %>
+			<h2><%= chick.name %></h2>
+			<%= image_tag((chick.image_uri), :class => "images") %>
+			<h3><%= chick.category %></h3>
+			<p><%= chick.text %></p>
+			<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
+			<button><%= link_to "comment", new_chick_comment_path(chick) %></button>
+			<br>
+			<% chick.comments.each do |ch| %>
+				<%= ch.body %> <br>
+			<% end %> 
+		<% end %>
+	</div>
+</div>

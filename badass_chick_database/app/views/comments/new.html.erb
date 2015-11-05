@@ -1,3 +1,15 @@
 <h1>Leave a comment</h1>
 
-<%= render 'form' %>
+</ol>
+<h3>Comments:</h3>
+<%= form_for [@chick, @comment] do |f| %>
+  <div class="field">
+    <%= f.label "New Comment" %>
+    <%= f.text_field :body %>
+    <% @comment.chick = @chick %>
+  </div>
+  <div class="action">
+    <%= f.submit %>
+  </div>
+<% end %>
+<ul>

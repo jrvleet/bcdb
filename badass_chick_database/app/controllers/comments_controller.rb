@@ -1,15 +1,16 @@
 class CommentsController < ApplicationController
 	def new
 		@comment = Comment.new
+		@chick = Chick.find(params[:chick_id])
 	end
 
 	def create
-		@comment = Comment.new(comment_params)
-		@comment.user = current_user
-		@comment.chick = Chick.find(params[:list_id])
+		@chick = Chick.find(params[:chick_id])
+		@comment = @chick.comments.build(comment_params)
+
 		if @comment.save
 			flash[:notice] = "Comment added!"
-			redirect_to :back
+			redirect_to chicks_path
 		else
 			render 'new'
 		end

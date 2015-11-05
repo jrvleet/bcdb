@@ -17,7 +17,7 @@
 	      	<%= link_to "BCDB", root_path, class: "logo" %>
 		      	<div class="navBar">
 		      		
-			      	<span class="navLinks">Category</span>
+			      	<!-- <span class="navLinks">Category</span> -->
 			      	<span class="navLinks"><%= link_to "Add Profile", new_chick_path %></span>
 			      	<span class="navLinks"><%= link_to "See All", chicks_path %></span>
 		      </div>
@@ -34,12 +34,11 @@
           <% end %>
         </p>
       </div>
+  </nav>
 
-
-</nav>
-
-
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
