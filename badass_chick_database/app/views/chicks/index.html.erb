@@ -5,6 +5,6 @@
 	<h3><%= chick.category %></h3>
 	<p><%= chick.text %></p>
 	<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
-	<button>comment</button>
+	<button><%= link_to "comment", new_chick_comment_path(chick) %></button>
 
 	<% end %>
