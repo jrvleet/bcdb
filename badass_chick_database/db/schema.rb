@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151104225518) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "chicks", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20151104225518) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "chicks", ["user_id"], name: "index_chicks_on_user_id"
+  add_index "chicks", ["user_id"], name: "index_chicks_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20151104225518) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["chick_id"], name: "index_comments_on_chick_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["chick_id"], name: "index_comments_on_chick_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -45,4 +48,7 @@ ActiveRecord::Schema.define(version: 20151104225518) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "chicks", "users"
+  add_foreign_key "comments", "chicks"
+  add_foreign_key "comments", "users"
 end
