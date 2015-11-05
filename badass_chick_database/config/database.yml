@@ -20,6 +20,8 @@ test:
   <<: *default
   database: badass_chick_database_test
 
-production: badass_chick_database_production
- username: badass_chick_database
+production:
+  <<: *default
+  database: badass_chick_database_production
+  username: badass_chick_database
   password: <%= ENV['BADASS_CHICK_DATABASE_PASSWORD']
