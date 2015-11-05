@@ -8,19 +8,18 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: badass_chick_database_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: badass_chick_database_test
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+production: badass_chick_database_production
+ username: badass_chick_database
+  password: <%= ENV['badass_chick_database_PASSWORD']
