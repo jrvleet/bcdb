@@ -8,9 +8,14 @@
 			<p><%= chick.text %></p>
 			<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
 			<button><%= link_to "comment", new_chick_comment_path(chick) %></button>
+			<% if @user.id == chick.user_id %>
+
+				<button><%= link_to "delete profile", chick, method: :delete, data: { confirm: 'Are you sure?'} %></button>
+			<% end %>
 			<br>
 			<% chick.comments.each do |ch| %>
 				<%= ch.body %> <br>
+				<button><%= link_to "x", chick_comment_path(chick, ch), method: :delete %></button>
 			<% end %> 
 		<% end %>
 	</div>

@@ -34,6 +34,11 @@ def update
 	end
 end
 
+	def destroy
+		@chick.destroy
+		redirect_to user_path(current_user)
+	end
+
 private
 
 	def user_params
