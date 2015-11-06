@@ -8,8 +8,9 @@
 			<p><%= chick.text %></p>
 			<h4><%= chick.likes %> likes </h4>
 			<span class="likes">
-			<%= link_to "like", like_path(:id => chick.id) %>
+			<%= link_to(like_path(:id => chick.id)) do %>
 			<span class="glyphicon glyphicon-heart btn btn-xs btn-default"></span>
+			<% end %>
 				
 
 			<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
