@@ -47,8 +47,15 @@ a:hover {
 h1 {
 	font-family: Futura;
 	text-align: center;
-	margin: 70px;
+	margin-top: 60px;
 	color: #ff6063;
+}
+
+h4 {
+	font-family: Futura;
+	text-align: center;
+	margin: 10px;
+	color: #4d505b;
 }
 
 .navbar-header {
@@ -81,7 +88,7 @@ h1 {
 
 .logins {
 	color: #ff6063;
-	margin-left: 425px;
+	margin-left: 375px;
 	float: right;
 	margin-top: 5px;
 
@@ -118,3 +125,15 @@ h1 {
 	/*border: 2px solid black;*/
 }
 
+.frontPage {
+	border: 2px solid white;
+	border-radius: 5px;
+	margin: 5px;
+	display: inline-block;
+	max-height: 300px;
+}
+
+.frontPageDiv {
+	display: inline-block;
+	max-height: 300px;
+}

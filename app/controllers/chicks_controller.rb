@@ -2,7 +2,6 @@ class ChicksController < ApplicationController
 	before_action :authorize, except: [:index, :show]
 
 	def index
-		@user = current_user
 		@chicks = Chick.all
 	end
 
@@ -38,6 +37,13 @@ class ChicksController < ApplicationController
 		else
 			render	'edit'
 		end
+	end
+
+	def like
+		chick = Chick.find(params[:id])
+		chick.likes += 1
+		chick.save
+		redirect_to chicks_path
 	end
 
 	def destroy

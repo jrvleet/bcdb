@@ -6,11 +6,19 @@
 			<%= image_tag((chick.image_uri), :class => "images") %>
 			<h3><%= chick.category %></h3>
 			<p><%= chick.text %></p>
+			<h4><%= chick.likes %> likes </h4>
+			<span class="likes">
+			<%= link_to "like", like_path(:id => chick.id) %>
+			<span class="glyphicon glyphicon-heart btn btn-xs btn-default"></span>
+				
+
 			<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
+			<% if current_user %>
 			<button><%= link_to "comment", new_chick_comment_path(chick) %></button>
-			<% if @user.id == chick.user_id %>
+			<% if current_user.id == chick.user_id %>
 
 				<button><%= link_to "delete profile", chick, method: :delete, data: { confirm: 'Are you sure?'} %></button>
+				<% end %>
 			<% end %>
 			<br>
 			<% chick.comments.each do |ch| %>
