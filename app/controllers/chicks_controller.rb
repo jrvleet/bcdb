@@ -3,6 +3,7 @@ class ChicksController < ApplicationController
 
 	def index
 		@chicks = Chick.all
+		# @chicks = @chicks.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def create
@@ -34,6 +35,7 @@ class ChicksController < ApplicationController
 		@chick = Chick.find(params[:id])
 		if @chick.update(chick_params)
 			redirect_to @chick
+		# redirect_to chicks_path, :action => 'show', :id => @chick_id
 		else
 			render	'edit'
 		end
@@ -43,7 +45,8 @@ class ChicksController < ApplicationController
 		chick = Chick.find(params[:id])
 		chick.likes += 1
 		chick.save
-		redirect_to chicks_path
+		redirect_to chicks_path(anchor: chick.name.parameterize)
+		# redirect_to chicks_path
 	end
 
 	def destroy

@@ -1,6 +1,7 @@
-<h2><%= @chick.name %></h2>
-	<%= image_tag((@chick.image_uri), :class => "images") %>
+<h1><%= @chick.name %></h1>
+	<%= image_tag((@chick.image_uri), :id => 'chick_id', :class => 'chick_class') %>
 	<h3><%= @chick.category %></h3>
 	<p><%= @chick.text %></p>
 	
-	<button>comment</button>
+	
+	<button class="btn btn-default"><%= link_to "comment", new_chick_comment_path(@chick) %></button>

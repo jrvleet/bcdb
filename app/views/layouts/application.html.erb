@@ -11,34 +11,36 @@
 
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     
-      <div class="navbar-header">
+   <div class="container">
+    
+    # <%= link_to "BCDB", root_path, class: "logo" %>
+    
+    
+    <div class="navBar">
+      <span class="navLinks"><%= link_to "Add Profile", new_chick_path %></span>
+      <span class="navLinks"><%= link_to "See All", chicks_path %></span>
+    </div>
 
-	      	<!-- <a href="/welcome/index" class="logo">BCDB</a> -->
-	      	<%= link_to "BCDB", root_path, class: "logo" %>
-		      	<div class="navBar">
-		      		
-			      	<!-- <span class="navLinks">Category</span> -->
-			      	<span class="navLinks"><%= link_to "Add Profile", new_chick_path %></span>
-			      	<span class="navLinks"><%= link_to "See All", chicks_path %></span>
-		      </div>
-	    
-        <p class="logins">
-          <% if current_user %>
-            <%= link_to "Logged In! #{current_user.name}", user_path(current_user) %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <%= link_to 'Logout', session_path('dummy'), method: :delete %>
-          <% else %>
-            <%= link_to 'Login', login_path %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <%= link_to 'Sign Up', new_user_path %>
-          <% end %>
-        </p>
-      </div>
-  </nav>
-
-  <div class="container">
-    <%= yield %>
+    
+    
+    <p class="logins">
+      <% if current_user %>
+      <%= link_to "Logged In! #{current_user.name}", user_path(current_user) %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to 'Logout', session_path('dummy'), method: :delete %>
+      <% else %>
+      <%= link_to 'Login', login_path %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to 'Sign Up', new_user_path %>
+      <% end %>
+    </p>
+    
   </div>
+</nav>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

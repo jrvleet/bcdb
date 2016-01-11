@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
 		if @comment.save
 			flash[:notice] = "Comment added!"
-			redirect_to chicks_path
+			redirect_to chicks_path(anchor: @chick.name.parameterize)
 		else
 			render 'new'
 		end

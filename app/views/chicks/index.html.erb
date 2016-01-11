@@ -1,31 +1,38 @@
 <div class="chicks-container">
 	<div class="chicks-feed">
-		<h1>Bad-Ass Chicks List</h1> 
+
+		<h1>Bad-Ass Chicks List</h1>
+
 		<% @chicks.each do |chick| %>
-			<h2><%= chick.name %></h2>
-			<%= image_tag((chick.image_uri), :class => "images") %>
-			<h3><%= chick.category %></h3>
-			<p><%= chick.text %></p>
-			<h4><%= chick.likes %> likes </h4>
-			<span class="likes">
-			<%= link_to(like_path(:id => chick.id)) do %>
-			<span class="glyphicon glyphicon-heart btn btn-xs btn-default"></span>
-			<% end %>
+		    <div id="<%= chick.name.parameterize %>">
+				<h2><%= chick.name %></h2>
+				<%= image_tag((chick.image_uri), :class => "images") %>
+			
+				<h3><%= chick.category %></h3>
+				<p><%= chick.text %></p>
+			
+				<h4><%= chick.likes %> likes </h4>
+				<span class="likes">
+					<%= link_to(like_path(:id => chick.id)) do %>
+				   		<span class="glyphicon glyphicon-heart btn btn-default"></span>
+				  	<% end %>
+				</span>
+
+				<button class="btn btn-default"><%= link_to "edit profile", edit_chick_path(chick) %></button>
 				
-
-			<button><%= link_to "edit profile", edit_chick_path(chick) %></button>
-			<% if current_user %>
-			<button><%= link_to "comment", new_chick_comment_path(chick) %></button>
-			<% if current_user.id == chick.user_id %>
-
-				<button><%= link_to "delete profile", chick, method: :delete, data: { confirm: 'Are you sure?'} %></button>
+				<% if current_user %>
+					<button class="btn btn-default"><%= link_to "comment", new_chick_comment_path(chick) %></button>
+					<% if current_user.id == chick.user_id %>
+						<button class="btn btn-default"><%= link_to "delete profile", chick, method: :delete, data: { confirm: 'Are you sure?'} %></button>
+					<% end %>
 				<% end %>
-			<% end %>
-			<br>
-			<% chick.comments.each do |ch| %>
-				<%= ch.body %> <br>
-				<button><%= link_to "x", chick_comment_path(chick, ch), method: :delete %></button>
-			<% end %> 
+				
+				<% chick.comments.each do |ch| %>
+					<%= ch.body %>
+					<button class="btn btn-default"><%= link_to "X", chick_comment_path(chick, ch), method: :delete %></button>
+				<% end %>
+			</div>
 		<% end %>
+	
 	</div>
 </div>
